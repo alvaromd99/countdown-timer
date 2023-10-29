@@ -1,0 +1,50 @@
+:root {
+	--number-color: hsl(345, 95%, 68%);
+	--bl: hsl(237, 18%, 59%);
+
+	--title-color: hsl(0, 0%, 100%);
+	--dr: hsl(236, 21%, 26%);
+	--vdr: hsl(235, 16%, 14%);
+	--bg-color: hsl(234, 17%, 12%);
+}
+
+#app {
+	min-height: 100vh;
+	background-color: var(--bg-color);
+	background-image: url('/public/bg-stars.svg');
+}
+
+.container {
+	min-height: 100vh;
+	background-image: url('/public/pattern-hills.svg');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.counter-cont h1 {
+	color: var(--title-color);
+	text-transform: uppercase;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+body {
+	min-height: 100vh;
+	font-family: 'Red Hat Text', sans-serif;
+	font-size: 14px;
+}
