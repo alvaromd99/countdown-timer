@@ -1,22 +1,25 @@
 :root {
-	--number-color: hsl(345, 95%, 68%);
 	--bl: hsl(237, 18%, 59%);
+	--number-color: hsl(345, 95%, 68%);
 
 	--title-color: hsl(0, 0%, 100%);
 	--dr: hsl(236, 21%, 26%);
 	--vdr: hsl(235, 16%, 14%);
 	--bg-color: hsl(234, 17%, 12%);
+
+	--first-part: #2a2d43;
+	--second-part: #34364a;
 }
 
 #app {
 	min-height: 100vh;
 	background-color: var(--bg-color);
-	background-image: url('/public/bg-stars.svg');
+	background-image: url('/bg-stars.svg');
 }
 
 .container {
 	min-height: 100vh;
-	background-image: url('/public/pattern-hills.svg');
+	background-image: url('/pattern-hills.svg');
 	background-repeat: no-repeat;
 	background-position: bottom;
 	display: flex;
@@ -28,6 +31,46 @@
 .counter-cont h1 {
 	color: var(--title-color);
 	text-transform: uppercase;
+	font-size: 2em;
+	text-align: center;
+	letter-spacing: 0.4em;
+}
+
+.counter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3em;
+}
+
+.cont {
+	width: 8em;
+	height: 8em;
+	color: var(--number-color);
+	position: relative;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.number {
+	/* color: var(--number-color); */
+	color: red;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 3em;
+}
+
+.top {
+	background-color: var(--first-part);
+	height: 50%;
+}
+
+.bottom {
+	background-color: var(--second-part);
+	height: 50%;
 }
 
 /* Reset */
