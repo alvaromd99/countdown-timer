@@ -5,6 +5,7 @@
 	--title-color: hsl(0, 0%, 100%);
 	--dr: hsl(236, 21%, 26%);
 	--vdr: hsl(235, 16%, 14%);
+	--vdr2: hsla(235, 15%, 14%, 0.486);
 	--bg-color: hsl(234, 17%, 12%);
 
 	--first-part: #2a2d43;
@@ -28,6 +29,9 @@
 	justify-content: center;
 }
 
+.counter-cont {
+}
+
 .counter-cont h1 {
 	color: var(--title-color);
 	text-transform: uppercase;
@@ -44,23 +48,21 @@
 }
 
 .card {
-	width: 8em;
+	width: 9em;
 	height: 8em;
-	color: var(--number-color);
 	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
 }
 
 .number {
-	/* color: var(--number-color); */
-	color: red;
+	color: var(--number-color);
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	font-size: 3em;
+	font-size: 5em;
 }
 
 .top {
@@ -68,9 +70,42 @@
 	height: 50%;
 }
 
+.top::after {
+	content: '';
+	position: absolute;
+	height: 0.5em;
+	width: 1em;
+	border-radius: 0.5em 0.5em 0 0;
+	top: 50%;
+	left: 0;
+	transform: translate(-35%, -40%) rotate(90deg);
+	background-color: var(--vdr);
+}
+
+.top::before {
+	content: '';
+	position: absolute;
+	height: 0.5em;
+	width: 1em;
+	border-radius: 0.5em 0.5em 0 0;
+	top: 50%;
+	left: 100%;
+	transform: translate(-70%, -40%) rotate(-90deg);
+	background-color: var(--vdr);
+}
+
 .bottom {
 	background-color: var(--second-part);
 	height: 50%;
+}
+
+.bottom::after {
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background-color: var(--vdr2);
+	z-index: 5;
 }
 
 /* Reset */
