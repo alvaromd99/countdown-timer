@@ -23,21 +23,16 @@
 	background-image: url('/pattern-hills.svg');
 	background-repeat: no-repeat;
 	background-position: bottom;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.counter-cont {
+	padding-top: 20em;
 }
 
 .counter-cont h1 {
 	color: var(--title-color);
 	text-transform: uppercase;
-	font-size: 2em;
+	font-size: 1.8em;
 	text-align: center;
 	letter-spacing: 0.4em;
+	margin-bottom: 5em;
 }
 
 .counter {
