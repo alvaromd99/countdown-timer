@@ -52,20 +52,83 @@
 
 .top,
 .bottom {
+	font-size: 5.4em;
 	color: var(--number-color);
 	height: 50%;
 	text-align: center;
-	font-size: 76px;
 	overflow: hidden;
-	line-height: 1.5;
 }
 
 .top {
 	background-color: var(--first-part);
 	transform-origin: bottom;
+	line-height: 1.5;
 }
 
 .bottom {
+	border-top: 1px solid var(--line-color);
 	background-color: var(--second-part);
 	line-height: 0;
+}
+
+.segment-overlay {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 9em;
+	perspective: 400px;
+}
+
+.segment-overlay .top-overlay,
+.segment-overlay .bottom-overlay {
+	position: absolute;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	height: 50%;
+	color: var(--number-color);
+	font-size: 5.4em;
+}
+
+.top-overlay {
+	background-color: var(--first-part);
+	top: 0;
+	line-height: 1.5;
+	transform-origin: bottom;
+}
+
+.bottom-overlay {
+	border-top: 1px solid var(--line-color);
+	background-color: var(--second-part);
+	bottom: 0;
+	line-height: 0;
+	transform-origin: top;
+}
+
+.segment-overlay.flip .top-overlay {
+	animation: flip-top 1s linear;
+}
+
+.segment-overlay.flip .bottom-overlay {
+	animation: flip-bottom 1s linear;
+}
+
+@keyframes flip-top {
+	0% {
+		transform: rotateX(0deg);
+	}
+	50%,
+	100% {
+		transform: rotateX(-90deg);
+	}
+}
+
+@keyframes flip-bottom {
+	0%,
+	50% {
+		transform: rotateX(90deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+	}
 }
