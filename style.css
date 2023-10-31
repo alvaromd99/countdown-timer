@@ -4,8 +4,8 @@
 
 	--title-color: hsl(0, 0%, 100%);
 	--dr: hsl(236, 21%, 26%);
-	--vdr: hsl(235, 16%, 14%);
-	--vdr2: hsla(235, 15%, 14%, 0.486);
+	--circle-color: hsl(235, 16%, 14%);
+	--line-color: hsla(235, 15%, 14%, 0.486);
 	--bg-color: hsl(234, 17%, 12%);
 
 	--first-part: #2a2d43;
@@ -63,30 +63,55 @@
 .top {
 	background-color: var(--first-part);
 	height: 50%;
+	transform-origin: bottom;
 }
 
-.top::after {
-	content: '';
-	position: absolute;
+.top.flip {
+	animation: flipTopToMid 3s ease;
+}
+
+.top.flipDown {
+}
+
+@keyframes flipTopToMid {
+	0% {
+		transform: rotateX(0deg);
+	}
+	50%,
+	100% {
+		transform: rotateX(90deg);
+	}
+}
+
+@keyframes flipMidToBottom {
+	0%,
+	50% {
+		transform: rotateX(90deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+	}
+}
+
+.circle {
 	height: 0.5em;
 	width: 1em;
+	position: absolute;
 	border-radius: 0.5em 0.5em 0 0;
+	background-color: var(--circle-color);
+	z-index: 3;
+}
+
+.circle.left {
 	top: 50%;
-	left: 0;
-	transform: translate(-35%, -40%) rotate(90deg);
-	background-color: var(--vdr);
+	left: 0%;
+	transform: translate(-30%, -50%) rotate(90deg);
 }
 
-.top::before {
-	content: '';
-	position: absolute;
-	height: 0.5em;
-	width: 1em;
-	border-radius: 0.5em 0.5em 0 0;
+.circle.right {
 	top: 50%;
 	left: 100%;
-	transform: translate(-70%, -40%) rotate(-90deg);
-	background-color: var(--vdr);
+	transform: translate(-70%, -50%) rotate(-90deg);
 }
 
 .bottom {
@@ -99,8 +124,8 @@
 	position: absolute;
 	height: 1px;
 	width: 100%;
-	background-color: var(--vdr2);
-	z-index: 5;
+	background-color: var(--line-color);
+	z-index: 2;
 }
 
 /* Reset */
