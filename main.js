@@ -1,3 +1,4 @@
+// Time that we are waiting for
 const targetDate = '2023-11-02T16:03:30'
 
 function getTimeSegmentElements(segmentElement) {
@@ -89,3 +90,18 @@ const countdownTime = setInterval(() => {
 		clearInterval(countdownTime)
 	}
 }, 1000)
+
+// Links colors
+const normalColor = '#8486a9'
+const hoverColor = '#fb6087'
+
+const links = document.querySelectorAll('.link')
+links.forEach((link) => {
+	link.addEventListener('mouseover', () => {
+		link.querySelector('svg').style.stroke = hoverColor
+	})
+
+	link.addEventListener('mouseout', () => {
+		link.querySelector('svg').style.stroke = normalColor
+	})
+})

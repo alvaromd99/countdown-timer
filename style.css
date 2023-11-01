@@ -1,17 +1,24 @@
 :root {
-	--letter-color: hsl(237, 18%, 59%);
-	--number-color: hsl(345, 95%, 68%);
-
-	--title-color: hsl(0, 0%, 100%);
-	--dr: hsl(236, 21%, 26%);
-	--circle-color: hsl(235, 16%, 14%);
-	--line-color: hsla(235, 15%, 14%, 0.486);
+	/* Background color */
 	--bg-color: hsl(234, 17%, 12%);
 
+	/* Letters colors */
+	--number-color: hsl(345, 95%, 68%);
+	--title-color: hsl(0, 0%, 100%);
+	--letter-color: hsl(237, 18%, 59%);
+
+	/* Card colors */
 	--first-part: #2a2d43;
 	--second-part: #34364a;
 
+	/* Complements colors */
+	--circle-color: hsl(235, 16%, 14%);
+	--line-color: hsla(235, 15%, 14%, 0.651);
+
+	/* Various variables */
 	--card-width: 13em;
+	--font-size: 7em;
+	--line-height: 1.75;
 }
 
 #app {
@@ -41,7 +48,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 3em;
+	gap: 4em;
 }
 
 .segment-cont p {
@@ -66,7 +73,7 @@
 
 .top,
 .bottom {
-	font-size: 8em;
+	font-size: var(--font-size);
 	color: var(--number-color);
 	height: 50%;
 	text-align: center;
@@ -76,7 +83,7 @@
 .top {
 	background-color: var(--first-part);
 	transform-origin: bottom;
-	line-height: 1.5;
+	line-height: var(--line-height);
 }
 
 .bottom {
@@ -100,13 +107,13 @@
 	width: 100%;
 	height: 50%;
 	color: var(--number-color);
-	font-size: 8em;
+	font-size: var(--font-size);
 }
 
 .top-overlay {
 	background-color: var(--first-part);
 	top: 0;
-	line-height: 1.5;
+	line-height: var(--line-height);
 	transform-origin: bottom;
 }
 
@@ -123,26 +130,6 @@
 
 .segment-overlay.flip .bottom-overlay {
 	animation: flip-bottom 0.8s linear;
-}
-
-@keyframes flip-top {
-	0% {
-		transform: rotateX(0deg);
-	}
-	50%,
-	100% {
-		transform: rotateX(-90deg);
-	}
-}
-
-@keyframes flip-bottom {
-	0%,
-	50% {
-		transform: rotateX(90deg);
-	}
-	100% {
-		transform: rotateX(0deg);
-	}
 }
 
 .circle {
@@ -165,8 +152,38 @@
 
 .line {
 	width: 100%;
-	height: 0.2em;
+	height: 1px;
 	position: absolute;
-	top: 5.9em;
+	top: 5.95em;
 	background-color: var(--line-color);
+}
+
+.links-cont {
+	width: 100%;
+	position: absolute;
+	bottom: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+}
+
+@keyframes flip-top {
+	0% {
+		transform: rotateX(0deg);
+	}
+	50%,
+	100% {
+		transform: rotateX(-90deg);
+	}
+}
+
+@keyframes flip-bottom {
+	0%,
+	50% {
+		transform: rotateX(90deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+	}
 }

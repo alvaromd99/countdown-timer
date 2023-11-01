@@ -14,3 +14,7 @@ body {
 	font-family: 'Red Hat Text', sans-serif;
 	font-size: 14px;
 }
+
+a {
+	all: unset;
+}
