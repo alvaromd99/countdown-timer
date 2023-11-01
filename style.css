@@ -17,8 +17,75 @@
 
 	/* Various variables */
 	--card-width: 13em;
+	--card-height: 12em;
 	--font-size: 7em;
 	--line-height: 1.75;
+}
+
+@media (max-width: 1440px) {
+	.container {
+		padding-top: 12em;
+	}
+
+	.counter {
+		gap: 3em;
+	}
+
+	.counter-cont h1 {
+		font-size: 2em;
+		letter-spacing: 0.4em;
+		margin-bottom: 5em;
+	}
+
+	.circle.left {
+		top: 5.5em;
+	}
+
+	.circle.right {
+		top: 5.5em;
+	}
+
+	.line {
+		top: 5.95em;
+	}
+}
+
+@media (max-width: 1024px) {
+	:root {
+		--card-width: 11em;
+		--card-height: 10em;
+		--font-size: 5em;
+		--line-height: 2;
+	}
+
+	.container {
+		padding-top: 14em;
+	}
+
+	.counter {
+		gap: 3em;
+	}
+
+	.counter-cont h1 {
+		font-size: 1em;
+		letter-spacing: 0.3em;
+		margin-bottom: 3em;
+	}
+
+	.circle.left {
+		top: 4.5em;
+	}
+
+	.circle.right {
+		top: 4.5em;
+	}
+
+	.line {
+		top: 5em;
+	}
+}
+
+@media (max-width: 768px) {
 }
 
 #app {
@@ -32,23 +99,18 @@
 	background-image: url('/pattern-hills.svg');
 	background-repeat: no-repeat;
 	background-position: bottom;
-	padding-top: 12em;
 }
 
 .counter-cont h1 {
 	color: var(--title-color);
 	text-transform: uppercase;
-	font-size: 2em;
 	text-align: center;
-	letter-spacing: 0.4em;
-	margin-bottom: 5em;
 }
 
 .counter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 4em;
 }
 
 .segment-cont p {
@@ -62,7 +124,7 @@
 
 .card {
 	width: var(--card-width);
-	height: 12em;
+	height: var(--card-height);
 	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
@@ -141,12 +203,10 @@
 
 .circle.left {
 	border-radius: 0 0.5em 0.5em 0;
-	top: 5.5em;
 }
 
 .circle.right {
 	border-radius: 0.5em 0 0 0.5em;
-	top: 5.5em;
 	right: 0;
 }
 
@@ -154,7 +214,6 @@
 	width: 100%;
 	height: 1px;
 	position: absolute;
-	top: 5.95em;
 	background-color: var(--line-color);
 }
 
