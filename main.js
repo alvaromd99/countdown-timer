@@ -1,7 +1,6 @@
-const targetDate = '2023-11-10T12:00:00'
+const targetDate = '2023-11-02T16:03:30'
 
 function getTimeSegmentElements(segmentElement) {
-	console.log(segmentElement)
 	const segment = segmentElement.querySelector('.card')
 	const top = segment.querySelector('.top')
 	const bottom = segment.querySelector('.bottom')
@@ -13,14 +12,17 @@ function getTimeSegmentElements(segmentElement) {
 }
 
 function updateSegmentValues(displayElement, overlayElement, value) {
-	displayElement.textContent = value
-	overlayElement.textContent = value
+	displayElement.textContent = String(value).padStart(2, '0')
+	overlayElement.textContent = String(value).padStart(2, '0')
 }
 
 function updateTimeSegment(segmentElement, timeValue) {
 	const { top, bottom, segmentOverlay, topOverlay, bottomOverlay } =
 		getTimeSegmentElements(segmentElement)
 
+	if (parseInt(top.textContent, 10) === timeValue) {
+		return
+	}
 	segmentOverlay.classList.add('flip')
 
 	updateSegmentValues(top, bottomOverlay, timeValue)
@@ -41,5 +43,49 @@ function updateTimeSection(sectionId, timeValue) {
 	updateTimeSegment(sectionElement, timeValue)
 }
 
-updateTimeSection('seconds', 33)
-updateTimeSection('minutes', 24)
+function getTimeRemaining(targetDateTime) {
+	const timeNow = Date.now()
+	const secondsRemaining = Math.floor((targetDateTime - timeNow) / 1000)
+
+	const complete = timeNow >= targetDateTime
+
+	if (complete) {
+		return {
+			complete,
+			days: 0,
+			hours: 0,
+			minutes: 0,
+			seconds: 0,
+		}
+	}
+
+	const days = Math.floor(secondsRemaining / (60 * 60 * 24))
+	const hours = Math.floor((secondsRemaining / (60 * 60)) % 24)
+	const minutes = Math.floor((secondsRemaining / 60) % 60)
+	const seconds = secondsRemaining % 60
+
+	return { complete, days, hours, minutes, seconds }
+}
+
+function updateAllTimes() {
+	const targetDateTime = new Date(targetDate).getTime()
+	const { complete, days, hours, minutes, seconds } =
+		getTimeRemaining(targetDateTime)
+
+	if (!complete) {
+		updateTimeSection('days', days)
+		updateTimeSection('hours', hours)
+		updateTimeSection('minutes', minutes)
+		updateTimeSection('seconds', seconds)
+	}
+
+	return complete
+}
+
+const countdownTime = setInterval(() => {
+	const isCompleted = updateAllTimes()
+
+	if (isCompleted) {
+		clearInterval(countdownTime)
+	}
+}, 1000)
