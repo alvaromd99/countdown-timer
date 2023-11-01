@@ -20,6 +20,8 @@
 	--card-height: 12em;
 	--font-size: 7em;
 	--line-height: 1.75;
+	--border-radius: 0.5em;
+	--circle-top: 5.5em;
 }
 
 @media (1024px < width <= 1440px) {
@@ -37,16 +39,31 @@
 		margin-bottom: 5em;
 	}
 
-	.circle.left {
-		top: 5.5em;
+	.card {
+		margin-bottom: 3em;
 	}
 
-	.circle.right {
-		top: 5.5em;
+	.segment-cont p {
+		font-size: 1.2em;
+		letter-spacing: 0.5em;
+	}
+
+	.circle {
+		width: 0.5em;
+		height: 1em;
 	}
 
 	.line {
 		top: 5.95em;
+	}
+
+	.links-cont {
+		bottom: 4rem;
+	}
+
+	.links-cont svg {
+		width: 44px;
+		height: 44px;
 	}
 }
 
@@ -56,6 +73,7 @@
 		--card-height: 10em;
 		--font-size: 6em;
 		--line-height: 1.7;
+		--circle-top: 4.5em;
 	}
 
 	.container {
@@ -72,20 +90,83 @@
 		margin-bottom: 4em;
 	}
 
-	.circle.left {
-		top: 4.5em;
+	.card {
+		margin-bottom: 2em;
 	}
 
-	.circle.right {
-		top: 4.5em;
+	.segment-cont p {
+		font-size: 1em;
+		letter-spacing: 0.5em;
+	}
+
+	.circle {
+		width: 0.5em;
+		height: 1em;
 	}
 
 	.line {
 		top: 5em;
 	}
+
+	.links-cont {
+		bottom: 3rem;
+	}
+
+	.links-cont svg {
+		width: 34px;
+		height: 34px;
+	}
 }
 
 @media (425px < width <= 768px) {
+	:root {
+		--card-width: 6em;
+		--card-height: 5em;
+		--font-size: 2.8em;
+		--line-height: 1.8;
+		--border-radius: 0.25em;
+		--circle-top: 2.25em;
+	}
+
+	.container {
+		padding-top: 8em;
+	}
+
+	.counter {
+		gap: 1.6em;
+	}
+
+	.counter-cont h1 {
+		font-size: 1em;
+		letter-spacing: 0.3em;
+		margin-bottom: 3em;
+	}
+
+	.card {
+		margin-bottom: 1.2em;
+	}
+
+	.segment-cont p {
+		font-size: 0.5em;
+		letter-spacing: 0.3em;
+	}
+
+	.circle {
+		width: 0.25em;
+		height: 0.5em;
+	}
+
+	.circle.left {
+		top: 2.25em;
+	}
+
+	.circle.right {
+		top: 2.25em;
+	}
+
+	.line {
+		top: 2.5em;
+	}
 }
 
 @media (375px < width <= 425px) {
@@ -120,9 +201,7 @@
 	color: var(--letter-color);
 	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 0.5em;
 	font-weight: bold;
-	font-size: 1.4em;
 }
 
 .card {
@@ -133,7 +212,6 @@
 	overflow: hidden;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
 		rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-	margin-bottom: 3em;
 }
 
 .top,
@@ -199,17 +277,17 @@
 
 .circle {
 	position: absolute;
-	width: 0.5em;
-	height: 1em;
 	background-color: var(--bg-color);
 }
 
 .circle.left {
-	border-radius: 0 0.5em 0.5em 0;
+	border-radius: 0 var(--border-radius) var(--border-radius) 0;
+	top: var(--circle-top);
 }
 
 .circle.right {
-	border-radius: 0.5em 0 0 0.5em;
+	border-radius: var(--border-radius) 0 0 var(--border-radius);
+	top: var(--circle-top);
 	right: 0;
 }
 
@@ -223,7 +301,6 @@
 .links-cont {
 	width: 100%;
 	position: absolute;
-	bottom: 4rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
