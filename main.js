@@ -1,5 +1,5 @@
 // Time that we are waiting for
-const targetDate = '2023-11-02T16:03:30'
+const targetDate = '2023-11-12T16:00:00'
 
 function getTimeSegmentElements(segmentElement) {
 	const segment = segmentElement.querySelector('.card')

@@ -22,7 +22,7 @@
 	--line-height: 1.75;
 }
 
-@media (max-width: 1440px) {
+@media (1024px < width <= 1440px) {
 	.container {
 		padding-top: 12em;
 	}
@@ -50,26 +50,26 @@
 	}
 }
 
-@media (max-width: 1024px) {
+@media (768px < width <= 1024px) {
 	:root {
 		--card-width: 11em;
 		--card-height: 10em;
-		--font-size: 5em;
-		--line-height: 2;
+		--font-size: 6em;
+		--line-height: 1.7;
 	}
 
 	.container {
-		padding-top: 14em;
+		padding-top: 10em;
 	}
 
 	.counter {
-		gap: 3em;
+		gap: 2em;
 	}
 
 	.counter-cont h1 {
-		font-size: 1em;
-		letter-spacing: 0.3em;
-		margin-bottom: 3em;
+		font-size: 1.8em;
+		letter-spacing: 0.4em;
+		margin-bottom: 4em;
 	}
 
 	.circle.left {
@@ -85,7 +85,10 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (425px < width <= 768px) {
+}
+
+@media (375px < width <= 425px) {
 }
 
 #app {
