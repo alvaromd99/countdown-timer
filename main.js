@@ -1,4 +1,4 @@
-// Time that we are waiting for
+/* Time that we are waiting for, desired date */
 const targetDate = '2023-11-12T16:00:00'
 
 function getTimeSegmentElements(segmentElement) {
@@ -12,18 +12,20 @@ function getTimeSegmentElements(segmentElement) {
 	return { top, bottom, segmentOverlay, topOverlay, bottomOverlay }
 }
 
+/* Function to update the text content */
 function updateSegmentValues(displayElement, overlayElement, value) {
 	displayElement.textContent = String(value).padStart(2, '0')
 	overlayElement.textContent = String(value).padStart(2, '0')
 }
 
+/* Function to add flip class and make the top and bottom move */
 function updateTimeSegment(segmentElement, timeValue) {
 	const { top, bottom, segmentOverlay, topOverlay, bottomOverlay } =
 		getTimeSegmentElements(segmentElement)
 
-	if (parseInt(top.textContent, 10) === timeValue) {
-		return
-	}
+	/* skip if is the same number */
+	if (parseInt(top.textContent, 10) === timeValue) return
+
 	segmentOverlay.classList.add('flip')
 
 	updateSegmentValues(top, bottomOverlay, timeValue)
@@ -38,12 +40,14 @@ function updateTimeSegment(segmentElement, timeValue) {
 	segmentOverlay.addEventListener('animationend', finishAnimation)
 }
 
+/* Function to get the segment-cont with the correspondent id */
 function updateTimeSection(sectionId, timeValue) {
 	const sectionElement = document.getElementById(sectionId)
 
 	updateTimeSegment(sectionElement, timeValue)
 }
 
+/* Function to calculate the time to the desired date */
 function getTimeRemaining(targetDateTime) {
 	const timeNow = Date.now()
 	const secondsRemaining = Math.floor((targetDateTime - timeNow) / 1000)
@@ -68,6 +72,7 @@ function getTimeRemaining(targetDateTime) {
 	return { complete, days, hours, minutes, seconds }
 }
 
+/* Function to use the functions above to get the time and update the text */
 function updateAllTimes() {
 	const targetDateTime = new Date(targetDate).getTime()
 	const { complete, days, hours, minutes, seconds } =
@@ -83,6 +88,7 @@ function updateAllTimes() {
 	return complete
 }
 
+/* 1 second interval */
 const countdownTime = setInterval(() => {
 	const isCompleted = updateAllTimes()
 
@@ -91,10 +97,11 @@ const countdownTime = setInterval(() => {
 	}
 }, 1000)
 
-// Links colors
+/* Links colors */
 const normalColor = '#8486a9'
 const hoverColor = '#fb6087'
 
+/* Make the links change color on hover */
 const links = document.querySelectorAll('.link')
 links.forEach((link) => {
 	link.addEventListener('mouseover', () => {

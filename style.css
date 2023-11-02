@@ -59,6 +59,7 @@
 
 	.links-cont {
 		bottom: 4rem;
+		gap: 2em;
 	}
 
 	.links-cont svg {
@@ -110,6 +111,7 @@
 
 	.links-cont {
 		bottom: 3rem;
+		gap: 1.8em;
 	}
 
 	.links-cont svg {
@@ -137,7 +139,7 @@
 	}
 
 	.counter-cont h1 {
-		font-size: 1em;
+		font-size: 1.2em;
 		letter-spacing: 0.3em;
 		margin-bottom: 3em;
 	}
@@ -166,6 +168,16 @@
 
 	.line {
 		top: 2.5em;
+	}
+
+	.links-cont {
+		bottom: 3rem;
+		gap: 1.4em;
+	}
+
+	.links-cont svg {
+		width: 24px;
+		height: 24px;
 	}
 }
 
@@ -304,7 +316,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 2em;
 }
 
 @keyframes flip-top {
