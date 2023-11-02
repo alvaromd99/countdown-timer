@@ -158,14 +158,6 @@
 		height: 0.5em;
 	}
 
-	.circle.left {
-		top: 2.25em;
-	}
-
-	.circle.right {
-		top: 2.25em;
-	}
-
 	.line {
 		top: 2.5em;
 	}
@@ -182,9 +174,114 @@
 }
 
 @media (375px < width <= 425px) {
+	:root {
+		--card-width: 5em;
+		--card-height: 4.5em;
+		--font-size: 2.6em;
+		--line-height: 1.8;
+		--border-radius: 0.25em;
+		--circle-top: 2em;
+	}
+
+	.container {
+		padding-top: 8em;
+	}
+
+	.counter {
+		gap: 1.6em;
+	}
+
+	.counter-cont h1 {
+		font-size: 1em;
+		letter-spacing: 0.3em;
+		margin-bottom: 3em;
+	}
+
+	.card {
+		margin-bottom: 1.2em;
+	}
+
+	.segment-cont p {
+		font-size: 0.5em;
+		letter-spacing: 0.3em;
+	}
+
+	.circle {
+		width: 0.25em;
+		height: 0.5em;
+	}
+
+	.line {
+		top: 2.25em;
+	}
+
+	.links-cont {
+		bottom: 3rem;
+		gap: 1.2em;
+	}
+
+	.links-cont svg {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (width <= 375px) {
+	:root {
+		--card-width: 5em;
+		--card-height: 4.5em;
+		--font-size: 2.6em;
+		--line-height: 1.8;
+		--border-radius: 0.25em;
+		--circle-top: 1.75em;
+	}
+
+	.container {
+		padding-top: 8em;
+	}
+
+	.counter {
+		gap: 1.6em;
+	}
+
+	.counter-cont h1 {
+		font-size: 1em;
+		letter-spacing: 0.3em;
+		margin-bottom: 3em;
+	}
+
+	.card {
+		margin-bottom: 1.2em;
+	}
+
+	.segment-cont p {
+		font-size: 0.5em;
+		letter-spacing: 0.3em;
+	}
+
+	.circle {
+		width: 0.25em;
+		height: 0.5em;
+	}
+
+	.line {
+		top: 2.25em;
+	}
+
+	.links-cont {
+		bottom: 3rem;
+		gap: 1.2em;
+	}
+
+	.links-cont svg {
+		width: 20px;
+		height: 20px;
+	}
 }
 
 #app {
+	min-width: 375px;
+	max-width: 1440px;
 	min-height: 100vh;
 	background-color: var(--bg-color);
 	background-image: url('/bg-stars.svg');
